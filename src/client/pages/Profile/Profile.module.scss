@@ -1,0 +1,362 @@
+@use "/src/assets/styles/variables" as *;
+@use "sass:color";
+
+.profilePage {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    min-height: 100vh;
+}
+
+.profileHeader {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.userAvatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: rgba($primary-color, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed $border-color;
+    background: #ffffff;
+}
+
+.title {
+    font-size: 2.2rem;
+    color: $dark-gray;
+    margin: 0;
+    font-weight: 600;
+}
+
+.profileContent {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+
+    @media (min-width: 992px) {
+        grid-template-columns: 350px 1fr;
+    }
+}
+
+.infoCard {
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px dashed $border-color;
+    height: fit-content;
+    height: auto;
+    font-size: 1em;
+
+    .ant-card-head {
+        border-bottom: 1px dashed $border-color;
+    }
+}
+
+.infoItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.infoIcon {
+    margin-right: 15px;
+    font-size: 1.3rem;
+}
+
+.infoText {
+    color: $text-color;
+}
+
+.logoutButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px;
+    margin-top: 30px;
+    background: rgba($danger-color, 0.1);
+    color: $danger-color;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: rgba($danger-color, 0.2);
+    }
+}
+
+.logoutButton {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba($danger-color, 0.1);
+    color: $danger-color;
+    border: none;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 0;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba($danger-color, 0.2);
+    }
+
+    .logoutIcon {
+        margin-left: 0.5rem;
+        transition: transform 0.3s ease;
+    }
+
+    &:hover .logoutIcon {
+        transform: translateX(-5px);
+    }
+}
+
+.logoutIcon {
+    margin-right: 8px;
+}
+
+.ordersSection {
+    width: 100%;
+}
+
+.ordersTitle {
+    font-size: 1.8rem;
+    color: $dark-gray;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.titleIcon {
+    margin-right: 12px;
+}
+
+.ordersGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.orderCard {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px dashed $border-color;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+}
+
+.orderHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.orderDetails {
+    margin: 20px 0;
+}
+
+.detailItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: $text-secondary;
+}
+
+.detailIcon {
+    margin-right: 10px;
+}
+
+.detailsButton {
+    width: 100%;
+    padding: 10px;
+    background: rgba($secondary-color, 0.1);
+    color: $secondary-color;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: rgba($secondary-color, 0.2);
+    }
+}
+
+.errorContainer {
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+.errorCard,
+.emptyCard {
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    font-size: 1.5em;
+    border: 1px dashed $border-color;
+}
+
+.loginButton,
+.catalogButton {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: $secondary-color;
+    color: white;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba($secondary-color, 0.3);
+    border: 0;
+
+    &:hover {
+        background: $secondary-hover;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba($secondary-color, 0.4);
+    }
+
+    .arrowIcon {
+        margin-left: 0.5rem;
+        transition: transform 0.3s ease;
+    }
+
+    &:hover .arrowIcon {
+        transform: translateX(5px);
+    }
+}
+
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+@media (max-width: 768px) {
+    .profilePage {
+        padding: 20px 15px;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .ordersGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.orderModal {
+    .ant-modal-content {
+        border-radius: 12px;
+    }
+
+    .ant-modal-header {
+        border-radius: 12px 12px 0 0;
+        border-bottom: 1px dashed $border-color;
+    }
+}
+
+.modalContent {
+    padding: 10px;
+    overflow: auto;
+
+}
+
+.orderSummary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.summaryItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 200px;
+
+    h4 {
+        margin: 0;
+        font-size: 0.9rem;
+        color: $text-secondary;
+    }
+
+    p {
+        margin: 5px 0 0;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+    &:last-child{
+        justify-content: center;
+    }
+}
+
+.summaryIcon {
+    font-size: 1.5rem;
+}
+
+.sectionTitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    color: $dark-gray;
+    margin-bottom: 15px;
+}
+
+.sectionIcon {
+    color: $primary-color;
+}
+
+.paymentInfo {
+    p {
+        margin: 8px 0;
+        font-size: 1.05rem;
+    }
+}
+
+.orderItemsTable {
+    margin: 20px 0;
+
+    .ant-table {
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .ant-table-thead > tr > th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+    }
+}
+
+@media (max-width: 768px) {
+    .orderSummary {
+        flex-direction: column;
+    }
+
+    .summaryItem {
+        width: 100%;
+    }
+
+    .orderModal {
+        width: 95% !important;
+        max-width: 100%;
+    }
+}

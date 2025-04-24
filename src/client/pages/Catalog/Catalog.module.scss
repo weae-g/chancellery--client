@@ -1,0 +1,320 @@
+@use "/src/assets/styles/variables" as *;
+@use "sass:color";
+
+.catalogPage {
+    padding: 30px;
+    min-height: 100vh;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px dashed $border-color;
+    border-radius: 1rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: $dark-gray;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: $secondary-color;
+        border-radius: 2px;
+    }
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 15px;
+}
+
+.catalogGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.catalogItem {
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid rgba($border-color, 0.2);
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    }
+}
+
+.imageContainer {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.catalogImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+
+    .catalogItem:hover & {
+        transform: scale(1.05);
+    }
+}
+
+.categoryTag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 2;
+}
+
+.wishlistButton {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 2;
+
+    &:hover {
+        background: $primary-color;
+        
+        .heartIcon {
+            color: ff3e65;
+        }
+    }
+
+    &.active {
+        background: $primary-color;
+        
+        .heartIcon {
+            color: #ff3e65;
+        }
+    }
+}
+
+.heartIcon {
+    color: #ff1744;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.catalogInfo {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.productHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.catalogName {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    flex: 1;
+}
+
+.catalogDescription {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.supplierInfo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #777;
+    font-size: 0.9rem;
+
+    .supplierIcon {
+        margin-right: 8px;
+        color: $primary-color;
+    }
+}
+
+.priceRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.catalogPrice {
+    font-size: 1.6rem;
+    color: $primary-color;
+    font-weight: 700;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.detailsButton {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 15px;
+    background: rgba($secondary-color, 0.1);
+    color: $secondary-color;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: rgba($secondary-color, 0.2);
+        color: color.adjust($secondary-color, $lightness: -10%);
+    }
+}
+
+.orderButton {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 15px;
+    background: $secondary-color;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: color.adjust($secondary-color, $lightness: -10%);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .catalogGrid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .catalogPage {
+        padding: 15px;
+    }
+    
+    .catalogGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .priceRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .detailsButton, .orderButton {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+.filterPanel {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  
+    .searchInput {
+      flex: 1;
+      min-width: 250px;
+    }
+  
+    .categorySelect {
+      min-width: 200px;
+    }
+  }
+  
+  .emptyState {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 20px 0;
+  }
+  
+  /* Адаптивность для фильтров */
+  @media (max-width: 768px) {
+    .filterPanel {
+      flex-direction: column;
+      gap: 15px;
+  
+      .searchInput,
+      .categorySelect {
+        width: 100%;
+      }
+    }
+  }

@@ -1,0 +1,253 @@
+@use "/src/assets/styles/variables" as *;
+@use "sass:color";
+
+.favoritesPage {
+  padding: 30px;
+  min-height: 100vh;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: $dark-gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  
+  &Icon {
+    color: $danger-color;
+  }
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: $text-secondary;
+}
+
+.favoritesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.favoritesItem {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.imageContainer {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.favoritesImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  
+  .favoritesItem:hover & {
+    transform: scale(1.05);
+  }
+}
+
+.removeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: $danger-color;
+    
+    .trashIcon {
+      color: white;
+    }
+  }
+}
+
+.trashIcon {
+  color: $danger-color;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.favoritesInfo {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.favoritesName {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: $dark-gray;
+  margin: 0 0 10px 0;
+}
+
+.favoritesDescription {
+  font-size: 0.95rem;
+  color: $text-secondary;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.bottomRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.favoritesPrice {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: $primary-color;
+}
+
+.favoritesLink {
+  padding: 8px 20px;
+  background: rgba($secondary-color, 0.1);
+  color: $secondary-color;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba($secondary-color, 0.2);
+    color: color.adjust($secondary-color, $lightness: -10%);
+  }
+}
+
+/* Empty states */
+.authMessage, .emptyMessage {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.authContent {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.authIcon, .emptyIcon {
+  font-size: 3rem;
+  color: $danger-color;
+  margin-bottom: 20px;
+}
+
+.emptyIcon {
+  width: 100%;
+  height: auto;
+}
+
+.authButton, .emptyButton {
+  display: inline-block;
+  padding: 12px 30px;
+  background: $secondary-color;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: color.adjust($secondary-color, $lightness: -10%);
+    color: white;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .favoritesPage {
+    padding: 20px 15px;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .favoritesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .favoritesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .bottomRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .favoritesLink {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.addToCartButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: $secondary-color;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+  
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+  
+  .cartIcon {
+    font-size: 16px;
+  }

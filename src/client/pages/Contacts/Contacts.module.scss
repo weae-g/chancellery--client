@@ -1,0 +1,201 @@
+@use "/src/assets/styles/variables" as *;
+
+.contactsPage {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.heroSection {
+  text-align: center;
+  padding: 60px 0 40px;
+  border-radius: 0 0 20px 20px;
+  margin-bottom: 40px;
+
+  h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #666;
+  }
+}
+
+.contactsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.contactInfo {
+  flex: 1;
+  min-width: 300px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.contactCard {
+  background: white;
+  padding: 25px;
+  border-radius: 1rem;
+  border: 1px dashed $border-color;
+
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: $accent-color;
+
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #222;
+  }
+
+  p {
+    margin: 8px 0;
+    color: #555;
+    line-height: 1.5;
+  }
+}
+
+.contactForm {
+  flex: 1;
+  background: white;
+  padding: 30px;
+  border-radius: 1rem;
+  border: 1px dashed $border-color;
+
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .formGroup {
+    margin-bottom: 20px;
+    width: calc(100% - 30px);
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+    }
+  }
+
+  .submitButton {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: $secondary-color;
+    color: white;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba($secondary-color, 0.3);
+    border: 0;
+    text-transform: uppercase;
+
+    &:hover {
+        background: $secondary-hover;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba($secondary-color, 0.4);
+    }
+  }
+}
+
+.mapSection {
+  margin: 50px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.socialSection {
+  text-align: center;
+  margin: 60px 0;
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+
+  .socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .socialIcon {
+    font-size: 2.2rem;
+    color: $secondary-color;
+    transition: color 0.3s, transform 0.3s;
+
+    &:hover {
+      color: $accent-color;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.alertContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 800px;
+  margin: 0 auto 20px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 40px 0 30px;
+
+    h1 {
+      font-size: 2.2rem;
+    }
+  }
+
+  .contactInfo {
+    grid-template-columns: 1fr;
+  }
+
+  .contactCard {
+    padding: 20px;
+  }
+}

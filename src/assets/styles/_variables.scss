@@ -1,0 +1,86 @@
+@use "sass:color";
+
+// =====================
+// Цвета (Colors)
+// =====================
+
+$primary-color: #fdfdfd;             // Светлый фон (почти белый)
+$secondary-color: #2f80ed;           // Акцент: мягкий синий
+$accent-color: #56cc9d;              // Доп. акцент: изумрудный
+$text-color: #1f1f1f;                // Основной текст
+$text-secondary: #555555;            // Вторичный текст
+$border-color: #dcdcdc;              // Светлые границы
+$danger-color: #e74c3c;              // Ошибки
+$white: #ffffff;
+$dark-gray: #2d2d2d;
+
+// Hover и состояния
+$primary-hover: color.adjust($primary-color, $lightness: -2%);
+$secondary-hover: color.adjust($secondary-color, $lightness: -10%);
+$accent-hover: color.adjust($accent-color, $lightness: -8%);
+
+// =====================
+// Типографика (Typography)
+// =====================
+
+$font-family-base: 'Inter', sans-serif;
+$font-size-base: 16px;
+$font-size-small: 14px;
+$font-size-large: 20px;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+// =====================
+// Отступы и размеры (Spacing & Sizing)
+// =====================
+
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 16px;
+$box-shadow-light: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+// =====================
+// Кнопки (Buttons)
+// =====================
+
+$button-padding: 10px 20px;
+$button-border-radius: 6px;
+$button-font-size: 16px;
+$button-font-weight: bold;
+$button-transition: 0.3s ease-in-out;
+
+$button-background: $secondary-color;
+$button-text-color: #ffffff;
+$button-border: none;
+
+$button-hover-background: $secondary-hover;
+$button-hover-color: #ffffff;
+$button-hover-border: none;
+
+.button {
+  background: $button-background;
+  color: $button-text-color;
+  padding: $button-padding;
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
+  border-radius: $button-border-radius;
+  border: $button-border;
+  cursor: pointer;
+  transition: background-color $button-transition, color $button-transition;
+
+  &:hover {
+    background-color: $button-hover-background;
+    color: $button-hover-color;
+    border: $button-hover-border;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
