@@ -1,6 +1,7 @@
 # React + TypeScript + Vite
 
-![demo](asset\main.gif)
+
+<img src="asset\main.gif" align="left"/>
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
